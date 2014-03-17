@@ -74,7 +74,7 @@ import android.widget.Scroller;
  */
 public class HorizontalListView extends AdapterView<ListAdapter> implements
         ViewTreeObserver.OnTouchModeChangeListener {
-    private static final String LOGTAG = "TwoWayView";
+    private static final String LOGTAG = "HorizontalListView";
 
     private static final int NO_POSITION = -1;
     private static final int INVALID_POINTER = -1;
@@ -367,7 +367,6 @@ public class HorizontalListView extends AdapterView<ListAdapter> implements
         ViewCompat.setOverScrollMode(this, ViewCompat.OVER_SCROLL_IF_CONTENT_SCROLLS);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.HorizontalListView, defStyle, 0);
-        initializeScrollbars(a);
 
         mDrawSelectorOnTop = a.getBoolean(
                 R.styleable.HorizontalListView_android_drawSelectorOnTop, false);
