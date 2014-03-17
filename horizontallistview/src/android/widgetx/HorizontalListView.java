@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.os.SystemClock;
+import android.support.v4.util.LongSparseArray;
 import android.support.v4.util.SparseArrayCompat;
 import android.support.v4.view.AccessibilityDelegateCompat;
 import android.support.v4.view.KeyEventCompat;
@@ -26,7 +27,6 @@ import android.support.v4.view.accessibility.AccessibilityNodeInfoCompat;
 import android.support.v4.widget.EdgeEffectCompat;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.util.LongSparseArray;
 import android.util.SparseBooleanArray;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.FocusFinder;
@@ -3718,9 +3718,9 @@ public class HorizontalListView extends AdapterView<ListAdapter> implements
 
         if (heightMode == MeasureSpec.UNSPECIFIED) {
             heightSize = getPaddingTop() + getPaddingBottom() + childHeight;
-            if (!mIsVertical) {
-                heightSize += getHorizontalScrollbarHeight();
-            }
+			if (!mIsVertical && getChildCount() != 0) {
+				heightSize += getHorizontalScrollbarHeight();
+			}
         }
 
         if (mIsVertical && heightMode == MeasureSpec.AT_MOST) {
